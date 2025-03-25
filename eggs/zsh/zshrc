@@ -1,0 +1,44 @@
+setopt EXTENDED_HISTORY
+setopt INC_APPEND_HISTORY_TIME
+setopt HIST_EXPIRE_DUPS_FIRST
+setopt HIST_IGNORE_SPACE
+setopt HIST_VERIFY
+
+# weird cursor stuff???
+if [[ "$ARGV0" == "/opt/cursor-bin/cursor-bin.AppImage" ]]; then
+  unset ARGV0
+fi
+
+export HISTFILE=$HOME/.zsh_history
+export SAVEHIST=1000000000
+export HISTSIZE=1000000000
+
+autoload -U +X bashcompinit && bashcompinit
+autoload -U +X compinit && compinit
+zstyle ':completion:*' rehash true
+
+export PATH="$HOME/bin:$PATH"
+export PATH="$HOME/.cargo/bin:$PATH"
+
+bindkey "[5~" beginning-of-line # pgup
+bindkey "[6~" end-of-line # pgdn
+bindkey "OH" beginning-of-line # home
+bindkey "OF" end-of-line # end
+bindkey "[3~" delete-char # del
+
+
+# {% if io::command_available("starship") %}
+#<yolk> eval "$(starship init zsh)"
+# {% end %}
+# {% if io::command_available("mise") %}
+#<yolk> eval "$(mise activate zsh)"
+# {% end %}
+export ZSH_AUTOSUGGEST_STRATEGY=(history completion)
+export ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=20
+[[ -f  "/usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh" ]] &&
+  source "/usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh" &&
+  bindkey '^ ' autosuggest-accept
+# {% if io::command_available("lsd") %}
+#<yolk> alias ls="lsd"
+# {% end %}
+

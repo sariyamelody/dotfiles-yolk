@@ -1,0 +1,14 @@
+[general]
+import = [
+	"~/.config/alacritty/themes/themes/tokyo_night_storm.toml"
+]
+live_config_reload = true
+
+[window]
+decorations = "None"
+opacity = 0.5
+padding = { x = 3, y = 3 }
+
+[font]
+normal = { family = "RecMonoDuotone Nerd Font" }
+size = 12
