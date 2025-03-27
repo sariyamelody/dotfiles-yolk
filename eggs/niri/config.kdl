@@ -56,11 +56,13 @@ input {
 //<yolk> // LG ultrawide
 //<yolk> output "DP-2" {
 	//<yolk> position x=0 y=1440
+	//<yolk> variable-refresh-rate
 //<yolk> }
 
 //<yolk> // benQ 4k monitor
 //<yolk> output "DP-1" {
 	//<yolk> position x=500 y=0
+	//<yolk> variable-refresh-rate
 //<yolk> }
 // {% end %}
 
@@ -215,7 +217,7 @@ layout {
 // which may be more convenient to use.
 // See the binds section below for more spawn examples.
 // spawn-at-startup "alacritty" "-e" "fish"
-spawn-at-startup "xwayland-satellite"
+spawn-at-startup "xwayland-satellite" "-verbose"
 spawn-at-startup "waybar"
 spawn-at-startup "telegram-desktop"
 // make discord show up on the right side of telegram-desktop
@@ -226,6 +228,8 @@ spawn-at-startup "bash" "-c" "sleep 2; discord-canary"
 // wait for xwayland-satellite to come up. yeah this might break. sue me
 spawn-at-startup "bash" "-c" "sleep 0.2; bolt"
 spawn-at-startup "bash" "-c" "sleep 1; 1password --silent"
+
+// spawn-at-startup "systemctl" "--user" "start" "hy
 
 // {% if SYSTEM.hostname == "fog" %}
 //<yolk> spawn-at-startup "bash" "-c" "swaybg -o DP-1 -i $HOME/Pictures/wallpapers/foggy-forest.jpg -m fill"
@@ -320,6 +324,7 @@ window-rule {
 // open steam games on the gaming workspace
 window-rule {
     match app-id=r#"^steam_app_"#
+    match app-id=r#"^gamescope$"#
 
     open-on-workspace "gaming"
 }
@@ -351,7 +356,7 @@ window-rule {
 
 // osrs account themes
 window-rule {
-    //match app-id=r#"^net-runelite-client-RuneLite$"#
+    // {# replace_re(` - .+\$`, ` - ${osrs_account_names.main}$`) #}
     match title=r#"^RuneLite - SERENSSISTER$"#
 
     focus-ring {
@@ -379,6 +384,7 @@ window-rule {
 }
 
 window-rule {
+    // {# replace_re(` - .+\$`, ` - ${osrs_account_names.gim}$`) #}
     match title=r#"^RuneLite - 84QuattroS1$"#
 
     focus-ring {
@@ -400,6 +406,7 @@ window-rule {
 }
 
 window-rule {
+    // {# replace_re(` - .+\$`, ` - ${osrs_account_names.moonspure}$`) #}
     match title=r#"^RuneLite - rodentsitter$"#
 
     focus-ring {
@@ -421,7 +428,9 @@ window-rule {
 }
 
 window-rule {
-    match title=r#"^RuneLite - PawsOfZaros$"#
+    // {# replace_re(`ACCOUNTNAME`, osrs_account_names.babypure) #}
+    // {# replace_re(` - .+\$`, ` - ${osrs_account_names.babypure}$`) #}
+    match title=r#"^RuneLite - ACCOUNTNAME$"#
 
     focus-ring {
         active-color "#f84848"
