@@ -20,6 +20,21 @@ input {
 
     // Next sections include libinput settings.
     // Omitting settings disables them, or leaves them at their default values.
+    touchpad {
+        // off
+        tap
+        // dwt
+        // dwtp
+        // drag-lock
+        natural-scroll
+        // accel-speed 0.2
+        // accel-profile "flat"
+	scroll-factor 0.2
+        // scroll-method "two-finger"
+        // disabled-on-external-mouse
+	click-method "clickfinger"
+    }
+
     mouse {
         // off
         // natural-scroll
@@ -98,7 +113,8 @@ layout {
     // preset-window-heights { }
 
     // You can change the default width of the new windows.
-    default-column-width { proportion 0.3333333; }
+    // {# if SYSTEM.hostname == "fog" #}
+    //<yolk> default-column-width { proportion 0.3333333; }
     // If you leave the brackets empty, the windows themselves will decide their initial width.
     // default-column-width {}
 
@@ -235,6 +251,9 @@ spawn-at-startup "bash" "-c" "sleep 1; 1password --silent"
 //<yolk> spawn-at-startup "bash" "-c" "swaybg -o DP-1 -i $HOME/Pictures/wallpapers/foggy-forest.jpg -m fill"
 //<yolk> spawn-at-startup "bash" "-c" "swaybg -o DP-2 -i $HOME/Pictures/wallpapers/foggy-forest-2.jpg -m fill"
 // {% end %}
+// {% if SYSTEM.hostname == "roving-mists" %}
+//<yolk> spawn-at-startup "bash" "-c" "swaybg -i $HOME/Pictures/wallpapers/foggy-forest-3.jpg -m fill"
+// {% end %}
 
 // Uncomment this line to ask the clients to omit their client-side decorations if possible.
 // If the client will specifically ask for CSD, the request will be honored.
@@ -259,7 +278,7 @@ animations {
     // off
 
     // Slow down all animations by this factor. Values below 1 speed them up instead.
-    // slowdown 3.0
+    // slowdown 6.0
 }
 
 // Window rules let you adjust behavior for individual windows.
@@ -317,7 +336,8 @@ window-rule {
 window-rule {
     match app-id=r#"^steam$"#
 
-    open-on-output "DP-1"
+    // {# if SYSTEM.hostname == "fog" #}
+    //<yolk> open-on-output "DP-1"
     open-on-workspace "steam"
 }
 
@@ -341,7 +361,8 @@ window-rule {
     match app-id=r#"^discord$"#
     match app-id=r#"^org\.telegram\.desktop$"#
 
-    open-on-output "DP-1"
+    // {# if SYSTEM.hostname == "fog" #}
+    //<yolk> open-on-output "DP-1"
     open-on-workspace "chat"
 }
 
@@ -560,14 +581,16 @@ binds {
     Mod+Shift+Ctrl+K     { move-column-to-monitor-up; }
     Mod+Shift+Ctrl+L     { move-column-to-monitor-right; }
 
-    Mod+Shift+Ctrl+Alt+Left  { move-workspace-to-monitor-left; }
-    Mod+Shift+Ctrl+Alt+Down  { move-workspace-to-monitor-down; }
-    Mod+Shift+Ctrl+Alt+Up    { move-workspace-to-monitor-up; }
-    Mod+Shift+Ctrl+Alt+Right { move-workspace-to-monitor-right; }
-    Mod+Shift+Ctrl+Alt+H     { move-workspace-to-monitor-left; }
-    Mod+Shift+Ctrl+Alt+J     { move-workspace-to-monitor-down; }
-    Mod+Shift+Ctrl+Alt+K     { move-workspace-to-monitor-up; }
-    Mod+Shift+Ctrl+Alt+L     { move-workspace-to-monitor-right; }
+    // {% if SYSTEM.hostname == "fog" %}
+    //<yolk> Mod+Shift+Ctrl+Alt+Left  { move-workspace-to-monitor-left; }
+    //<yolk> Mod+Shift+Ctrl+Alt+Down  { move-workspace-to-monitor-down; }
+    //<yolk> Mod+Shift+Ctrl+Alt+Up    { move-workspace-to-monitor-up; }
+    //<yolk> Mod+Shift+Ctrl+Alt+Right { move-workspace-to-monitor-right; }
+    //<yolk> Mod+Shift+Ctrl+Alt+H     { move-workspace-to-monitor-left; }
+    //<yolk> Mod+Shift+Ctrl+Alt+J     { move-workspace-to-monitor-down; }
+    //<yolk> Mod+Shift+Ctrl+Alt+K     { move-workspace-to-monitor-up; }
+    //<yolk> Mod+Shift+Ctrl+Alt+L     { move-workspace-to-monitor-right; }
+    // {% end %}
 
     // Alternatively, there are commands to move just a single window:
     // Mod+Shift+Ctrl+Left  { move-window-to-monitor-left; }
@@ -771,6 +794,8 @@ workspace "steam" {
     // {# if SYSTEM.hostname == "fog" #}
     //<yolk> open-on-output "DP-2"
 }
+
+clipboard { disable-primary; }
 
 debug {
     // {# if SYSTEM.hostname == "fog" #}
