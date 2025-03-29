@@ -357,7 +357,7 @@ window-rule {
 // osrs account themes
 window-rule {
     // {# replace_re(` - .+\$`, ` - ${osrs_account_names.main}$`) #}
-    match title=r#"^RuneLite - SERENSSISTER$"#
+    match title=r#"^RuneLite - SECRET_REVERSED_STRING$"#
 
     focus-ring {
         active-color "#a466c8"
@@ -385,7 +385,7 @@ window-rule {
 
 window-rule {
     // {# replace_re(` - .+\$`, ` - ${osrs_account_names.gim}$`) #}
-    match title=r#"^RuneLite - 84QuattroS1$"#
+    match title=r#"^RuneLite - SECRET_REVERSED_STRING$"#
 
     focus-ring {
         active-color "#91e1f0"
@@ -407,7 +407,7 @@ window-rule {
 
 window-rule {
     // {# replace_re(` - .+\$`, ` - ${osrs_account_names.moonspure}$`) #}
-    match title=r#"^RuneLite - rodentsitter$"#
+    match title=r#"^RuneLite - SECRET_REVERSED_STRING$"#
 
     focus-ring {
         active-color "#25fdb7"
@@ -428,9 +428,8 @@ window-rule {
 }
 
 window-rule {
-    // {# replace_re(`ACCOUNTNAME`, osrs_account_names.babypure) #}
     // {# replace_re(` - .+\$`, ` - ${osrs_account_names.babypure}$`) #}
-    match title=r#"^RuneLite - ACCOUNTNAME$"#
+    match title=r#"^RuneLite - SECRET_REVERSED_STRING$"#
 
     focus-ring {
         active-color "#f84848"

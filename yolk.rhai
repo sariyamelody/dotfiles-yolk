@@ -1,21 +1,25 @@
 export let data = #{
-    for_vcs: LOCAL,
+    is_local: LOCAL,
     cool_setting: if SYSTEM.hostname == "foo" { 10 } else { 25 }
 };
 
 export let osrs_account_names = #{
     // PKers sometimes google RSNs to attempt to link identities and dox -
     // rev these to prevent this
-    main:        reverse_string("RETSISSNERES"),
-    gim:         reverse_string("1SorttauQ48"),
-    babypure:    reverse_string("soraZfOswaP"),
-    moonspure:   reverse_string("rettistnedor"),
+    main:        reverse_string("RETSISSNERES", LOCAL),
+    gim:         reverse_string("1SorttauQ48", LOCAL),
+    babypure:    reverse_string("soraZfOswaP", LOCAL),
+    moonspure:   reverse_string("rettistnedor", LOCAL),
 };
 
-fn reverse_string(s) {
+fn reverse_string(s, is_local) {
     let tmp = s.to_blob();
     tmp.reverse();
-    return tmp.as_string();
+    if(is_local) {
+        return tmp.as_string();
+    } else {
+        return "SECRET_REVERSED_STRING"
+    }
 }
 
 export let eggs = #{
