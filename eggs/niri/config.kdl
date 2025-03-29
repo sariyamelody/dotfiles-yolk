@@ -321,6 +321,12 @@ window-rule {
     open-on-workspace "steam"
 }
 
+window-rule {
+// open steam notifications in the corner
+    match app-id="steam" title=r#"^notificationtoasts_\d+_desktop$"#
+    default-floating-position x=10 y=10 relative-to="bottom-right"
+}
+
 // open steam games on the gaming workspace
 window-rule {
     match app-id=r#"^steam_app_"#
@@ -764,4 +770,11 @@ workspace "steam" {
     // always open on ultrawide
     // {# if SYSTEM.hostname == "fog" #}
     //<yolk> open-on-output "DP-2"
+}
+
+debug {
+    // {# if SYSTEM.hostname == "fog" #}
+    //<yolk> wait-for-frame-completion-in-pipewire
+    // {# if SYSTEM.hostname == "fog" #}
+    //<yolk> honor-xdg-activation-with-invalid-serial
 }
