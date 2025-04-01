@@ -385,6 +385,7 @@ window-rule {
 window-rule {
     // {# replace_re(` - .+\$`, ` - ${osrs_account_names.main}$`) #}
     match title=r#"^RuneLite - SECRET_REVERSED_STRING$"#
+    open-on-workspace "osrs"
 
     focus-ring {
         active-color "#a466c8"
@@ -413,6 +414,7 @@ window-rule {
 window-rule {
     // {# replace_re(` - .+\$`, ` - ${osrs_account_names.gim}$`) #}
     match title=r#"^RuneLite - SECRET_REVERSED_STRING$"#
+    open-on-workspace "osrs"
 
     focus-ring {
         active-color "#91e1f0"
@@ -435,6 +437,7 @@ window-rule {
 window-rule {
     // {# replace_re(` - .+\$`, ` - ${osrs_account_names.moonspure}$`) #}
     match title=r#"^RuneLite - SECRET_REVERSED_STRING$"#
+    open-on-workspace "osrs"
 
     focus-ring {
         active-color "#25fdb7"
@@ -457,6 +460,7 @@ window-rule {
 window-rule {
     // {# replace_re(` - .+\$`, ` - ${osrs_account_names.babypure}$`) #}
     match title=r#"^RuneLite - SECRET_REVERSED_STRING$"#
+    open-on-workspace "osrs"
 
     focus-ring {
         active-color "#f84848"
