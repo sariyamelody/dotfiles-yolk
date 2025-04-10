@@ -80,6 +80,11 @@ input {
 	//<yolk> variable-refresh-rate
 //<yolk> }
 // {% end %}
+// {% if SYSTEM.hostname == "roving-mists" %}
+//<yolk> output "eDP-2" {
+	//<yolk> scale 1.3
+//<yolk> }
+// {% end %}
 
 // Settings that influence how windows are positioned and sized.
 // Find more information on the wiki:
@@ -316,6 +321,16 @@ window-rule {
     // - Flatpak Firefox (app-id is "org.mozilla.firefox")
     match app-id=r#"firefox$"# title="^Picture-in-Picture$"
     open-floating true 
+}
+
+// Open the Runelite picture-in-picture player as floating by default.
+window-rule {
+    match app-id=r#"^net-runelite-client-RuneLite$"# title="^Picture in Picture$"
+    open-floating true 
+    geometry-corner-radius 12
+    clip-to-geometry true
+    default-floating-position x=50 y=50 relative-to="top-right"
+
 }
 
 window-rule {
