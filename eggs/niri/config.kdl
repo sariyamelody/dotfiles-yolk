@@ -404,6 +404,7 @@ window-rule {
 window-rule {
     match title=r#"^RuneLite"#
     open-on-workspace "osrs"
+    open-focused false
     default-window-height { proportion 0.4; }
 }
 
