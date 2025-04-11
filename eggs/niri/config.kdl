@@ -395,12 +395,17 @@ window-rule {
     open-on-workspace "osrs"
 }
 
+// open osrs windows on osrs
+window-rule {
+    match title=r#"^RuneLite"#
+    open-on-workspace "osrs"
+    default-window-height { proportion 0.4; }
+}
 
 // osrs account themes
 window-rule {
     // {# replace_re(` - .+\$`, ` - ${osrs_account_names.main}$`) #}
     match title=r#"^RuneLite - SECRET_REVERSED_STRING$"#
-    open-on-workspace "osrs"
 
     focus-ring {
         active-color "#a466c8"
@@ -429,7 +434,6 @@ window-rule {
 window-rule {
     // {# replace_re(` - .+\$`, ` - ${osrs_account_names.gim}$`) #}
     match title=r#"^RuneLite - SECRET_REVERSED_STRING$"#
-    open-on-workspace "osrs"
 
     focus-ring {
         active-color "#91e1f0"
@@ -452,7 +456,6 @@ window-rule {
 window-rule {
     // {# replace_re(` - .+\$`, ` - ${osrs_account_names.moonspure}$`) #}
     match title=r#"^RuneLite - SECRET_REVERSED_STRING$"#
-    open-on-workspace "osrs"
 
     focus-ring {
         active-color "#25fdb7"
@@ -475,7 +478,6 @@ window-rule {
 window-rule {
     // {# replace_re(` - .+\$`, ` - ${osrs_account_names.babypure}$`) #}
     match title=r#"^RuneLite - SECRET_REVERSED_STRING$"#
-    open-on-workspace "osrs"
 
     focus-ring {
         active-color "#f84848"
@@ -739,6 +741,8 @@ binds {
     // Finer height adjustments when in column with other windows.
     Mod+Shift+Minus { set-window-height "-10%"; }
     Mod+Shift+Equal { set-window-height "+10%"; }
+
+    Mod+Shift+X { spawn "bash" "-c" "xprop > ~/xprop-output"; }
 
     // Move the focused window between the floating and the tiling layout.
     Mod+V       { toggle-window-floating; }
