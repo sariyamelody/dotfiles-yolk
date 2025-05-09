@@ -283,13 +283,22 @@ screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
 // Animation settings.
 // The wiki explains how to configure individual animations:
 // https://github.com/YaLTeR/niri/wiki/Configuration:-Animations
+//animations {
+//    // Uncomment to turn off all animations.
+//    // off
+//
+//    // Slow down all animations by this factor. Values below 1 speed them up instead.
+//    // slowdown 6.0
+//}
 animations {
-    // Uncomment to turn off all animations.
-    // off
-
-    // Slow down all animations by this factor. Values below 1 speed them up instead.
-    // slowdown 6.0
+    window-movement {
+        spring damping-ratio=1.0 stiffness=800 epsilon=0.0001
+    }
+    horizontal-view-movement {
+        spring damping-ratio=1.0 stiffness=800 epsilon=0.0001
+    }
 }
+
 
 // Window rules let you adjust behavior for individual windows.
 // Find more information on the wiki:
