@@ -52,3 +52,6 @@ export ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=20
 #<yolk> eval "$(atuin init zsh --disable-up-arrow)"
 #<yolk> eval "$(atuin gen-completions --shell zsh)"
 # {% end %}
+
+# # Added by LM Studio CLI (lms)
+# export PATH="$PATH:/home/misty/.lmstudio/bin"
