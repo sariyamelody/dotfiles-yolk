@@ -384,6 +384,38 @@ window-rule {
     open-on-workspace "gaming"
 }
 
+window-rule {
+    match title=r#"^Warhammer 40,000: Darktide"#
+    match app-id=r#"steam_app_1361210"# // darktide
+    match app-id=r#"steam_app_1239080"# // doorkickers 2
+    match app-id=r#"steam_app_690790"# // dirt rally 2
+    match app-id=r#"steam_app_1374490"# // dragonwilds
+    match app-id=r#"steam_app_553850"# // helldivers 2
+    open-fullscreen true
+    open-floating false
+    min-width 3440
+    max-width 3440
+    min-height 1374
+    max-height 1374
+}
+
+window-rule { // 16:9 games
+    match app-id="steam_app_1569580" // blue prince
+    // 2444 is (16:9) when height is 1374 (windowed w/ bar)
+    min-width 2444
+    max-width 2444
+    min-height 1374
+    max-height 1374
+}
+
+// window-rule {
+//     match app-id=r#"steam_app_690790"# // dirt rally 2
+//     min-width 3440
+//     min-height 1440
+//     max-width 3440
+//     max-height 1440
+// }
+
 // Open telegram and discord on second monitor, always
 
 window-rule {
