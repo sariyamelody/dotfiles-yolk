@@ -842,25 +842,25 @@ environment {
 workspace "chat" {
     // always open on 4k
     // {# if SYSTEM.hostname == "fog" #}
-    //<yolk> open-on-output "HDMI-A-1"
+    //<yolk> open-on-output "DP-2"
 }
 
 workspace "osrs" {
     // always open on ultrawide
     // {# if SYSTEM.hostname == "fog" #}
-    //<yolk> open-on-output "DP-1"
+    //<yolk> open-on-output "DP-3"
 }
 
 workspace "gaming" {
     // always open on ultrawide
     // {# if SYSTEM.hostname == "fog" #}
-    //<yolk> open-on-output "DP-1"
+    //<yolk> open-on-output "DP-3"
 }
 
 workspace "steam" {
     // always open on ultrawide
     // {# if SYSTEM.hostname == "fog" #}
-    //<yolk> open-on-output "DP-1"
+    //<yolk> open-on-output "DP-3"
 }
 
 clipboard { disable-primary; }
