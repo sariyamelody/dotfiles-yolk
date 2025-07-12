@@ -69,15 +69,14 @@ input {
 
 // {% if SYSTEM.hostname == "fog" %}
 //<yolk> // LG ultrawide
-//<yolk> output "DP-2" {
+//<yolk> output "DP-3" {
 	//<yolk> position x=0 y=1440
 	//<yolk> variable-refresh-rate
 //<yolk> }
 
-//<yolk> // benQ 4k monitor
-//<yolk> output "DP-1" {
-	//<yolk> position x=500 y=0
-	//<yolk> variable-refresh-rate
+//<yolk> // work LG ultrawide
+//<yolk> output "DP-2" {
+	//<yolk> position x=0 y=0
 //<yolk> }
 // {% end %}
 // {% if SYSTEM.hostname == "roving-mists" %}
@@ -241,7 +240,7 @@ layout {
 // which may be more convenient to use.
 // See the binds section below for more spawn examples.
 // spawn-at-startup "alacritty" "-e" "fish"
-spawn-at-startup "xwayland-satellite" "-verbose"
+// spawn-at-startup "xwayland-satellite" "-verbose"
 spawn-at-startup "waybar"
 spawn-at-startup "Telegram"
 // make discord show up on the right side of telegram-desktop
@@ -258,7 +257,7 @@ spawn-at-startup "wl-paste" "--watch" "cliphist" "store"
 // spawn-at-startup "systemctl" "--user" "start" "hy
 
 // {% if SYSTEM.hostname == "fog" %}
-//<yolk> spawn-at-startup "bash" "-c" "swaybg -o DP-1 -i $HOME/Pictures/wallpapers/foggy-forest.jpg -m fill"
+//<yolk> spawn-at-startup "bash" "-c" "swaybg -o DP-3 -i $HOME/Pictures/wallpapers/foggy-forest.jpg -m fill"
 //<yolk> spawn-at-startup "bash" "-c" "swaybg -o DP-2 -i $HOME/Pictures/wallpapers/foggy-forest-2.jpg -m fill"
 // {% end %}
 // {% if SYSTEM.hostname == "roving-mists" %}
@@ -843,25 +842,25 @@ environment {
 workspace "chat" {
     // always open on 4k
     // {# if SYSTEM.hostname == "fog" #}
-    //<yolk> open-on-output "DP-1"
+    //<yolk> open-on-output "HDMI-A-1"
 }
 
 workspace "osrs" {
     // always open on ultrawide
     // {# if SYSTEM.hostname == "fog" #}
-    //<yolk> open-on-output "DP-2"
+    //<yolk> open-on-output "DP-1"
 }
 
 workspace "gaming" {
     // always open on ultrawide
     // {# if SYSTEM.hostname == "fog" #}
-    //<yolk> open-on-output "DP-2"
+    //<yolk> open-on-output "DP-1"
 }
 
 workspace "steam" {
     // always open on ultrawide
     // {# if SYSTEM.hostname == "fog" #}
-    //<yolk> open-on-output "DP-2"
+    //<yolk> open-on-output "DP-1"
 }
 
 clipboard { disable-primary; }
