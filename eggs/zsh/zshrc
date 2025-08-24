@@ -42,6 +42,8 @@ export ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=20
 #<yolk> alias ls="lsd"
 # {% end %}
 
+alias htop=zenith
+
 # {# if SYSTEM.distro == "Arch Linux" #}
 #<yolk> alias windows_update="paru -Syu"
 

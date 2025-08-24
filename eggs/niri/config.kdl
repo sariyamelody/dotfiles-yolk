@@ -254,6 +254,11 @@ spawn-at-startup "bash" "-c" "sleep 1; 1password --silent"
 
 spawn-at-startup "wl-paste" "--watch" "cliphist" "store"
 
+spawn-at-startup "discover-overlay" "--hide"
+
+// i guess this is what we're doing now
+spawn-at-startup "/usr/lib/polkit-kde-authentication-agent-1"
+
 // spawn-at-startup "systemctl" "--user" "start" "hy
 
 // {% if SYSTEM.hostname == "fog" %}
@@ -390,6 +395,8 @@ window-rule {
     match app-id=r#"steam_app_690790"# // dirt rally 2
     match app-id=r#"steam_app_1374490"# // dragonwilds
     match app-id=r#"steam_app_553850"# // helldivers 2
+    match app-id=r#"steam_app_3504780"# // wildgate
+
     open-fullscreen true
     open-floating false
     min-width 3440
@@ -407,13 +414,13 @@ window-rule { // 16:9 games
     max-height 1374
 }
 
-// window-rule {
-//     match app-id=r#"steam_app_690790"# // dirt rally 2
-//     min-width 3440
-//     min-height 1440
-//     max-width 3440
-//     max-height 1440
-// }
+window-rule {
+    match app-id=r#"steam_app_3011440"# // clickolding (???)
+    min-width 3440
+    min-height 1440
+    max-width 3440
+    max-height 1440
+}
 
 // Open telegram and discord on second monitor, always
 
@@ -591,6 +598,9 @@ binds {
     XF86AudioLowerVolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.1-"; }
     XF86AudioMute        allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SINK@" "toggle"; }
     XF86AudioMicMute     allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SOURCE@" "toggle"; }
+
+    F12 { spawn "discover-overlay" "--rpc" "--toggle-mute"; }
+    F24 { spawn "discover-overlay" "--rpc" "--toggle-deafen"; }
 
     Mod+Q { close-window; }
 
@@ -866,8 +876,6 @@ workspace "steam" {
 clipboard { disable-primary; }
 
 debug {
-    // {# if SYSTEM.hostname == "fog" #}
-    //<yolk> wait-for-frame-completion-in-pipewire
     // {# if SYSTEM.hostname == "fog" #}
     //<yolk> honor-xdg-activation-with-invalid-serial
 }

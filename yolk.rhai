@@ -6,7 +6,7 @@ export let data = #{
 export let osrs_account_names = #{
     // PKers sometimes google RSNs to attempt to link identities and dox -
     // rev these to prevent this
-    main:        reverse_string("RETSISSNERES", LOCAL),
+    main:        reverse_string("godem4krab", LOCAL),
     gim:         reverse_string("1SorttauQ48", LOCAL),
     babypure:    reverse_string("soraZfOswaP", LOCAL),
     moonspure:   reverse_string("rettistnedor", LOCAL),
